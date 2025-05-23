@@ -1,1 +1,1 @@
-# Мой торговый бот на CFD
+# Trade bot for cfd ( indexes at all)
