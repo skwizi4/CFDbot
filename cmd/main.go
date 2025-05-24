@@ -1,14 +1,32 @@
 package main
 
 import (
-	"fmt"
+	"TradeBot/internal/app"
+	"context"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
-	s := "gopher"
-	fmt.Printf("Hello and welcome, %s!\n", s)
+	var testRange string
+	a := app.New("MusicApp")
+	a.Run(gracefulShutDown(), testRange)
+}
 
-	for i := 2; i <= 5; i++ {
-		fmt.Println("i =", 100/i)
-	}
+func gracefulShutDown() context.Context {
+	ctx, cancel := context.WithCancel(context.Background())
+	c := make(chan os.Signal)
+
+	signal.Notify(c, syscall.SIGTERM, os.Interrupt)
+	go func() {
+		<-c
+		log.Print("services stopped by graceful	ShutDown")
+		cancel()
+		os.Exit(0)
+
+	}()
+
+	return ctx
 }

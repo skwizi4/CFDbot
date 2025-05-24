@@ -1,10 +1,12 @@
+
 {
-  "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
+  "CFD": {
+    "ApiKey": "Zj3TcRDfAoeULEPR_NZ_",
+    "ApiUrl": "https://marketdata.tradermade.com/api"
+  },
+  "Mongo": {
+    "Uri": "mongodb://localhost:27017",
+    "DataBaseName": "your-database-name",
+    "collection_name": "your-collection-name"
   }
 }
